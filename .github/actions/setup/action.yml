@@ -1,50 +1,43 @@
-name: Setup node and pnpm
+name: Setup bun action
 description: |
-  Configures Node, pnpm, cache, performs pnpm install
+  Configures bun, cache, performs bun install
 
 inputs:
-  pnpm-run-install:
-    description: Whether to run pnpm install
+  bun-run-install:
+    description: Whether to run bun install
     required: false
     default: "true"
-  pnpm-restore-cache:
+  bun-restore-cache:
     description: Whether to restore cache
     required: false
     default: "true"
-  pnpm-install-cache-key:
-    description: The cache key for the pnpm install cache
+  bun-install-cache-key:
+    description: The cache key for the bun install cache
     required: false
-    default: ${{ runner.os }}-solid-start-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+    default: ${{ runner.os }}-solid-start-${{ hashFiles('**/bun.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
 
 runs:
   using: composite
   steps:
-    - name: Install pnpm
-      uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
-      with:
-        run_install: false
-
-    - name: Restore pnpm install cache
-      if: ${{ inputs.pnpm-restore-cache == 'true' }}
+    - name: Restore bun install cache
+      if: ${{ inputs.bun-restore-cache == 'true' }}
       uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
       with:
-        # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
+        # See here for caching with `bun` https://github.com/actions/cache/blob/main/examples.md#bun
         path: |
-          ~/.pnpm-store
-          ${{ github.workspace }}/node_modules/.vite
+          path: ~/.bun/install/cache
         # Generate a new cache whenever packages or source files change.
-        key: ${{ inputs.pnpm-install-cache-key }}
+        key: ${{ inputs.bun-install-cache-key }}
         # If source files changed but packages didn't, rebuild from a prior cache.
         restore-keys: |
-          ${{ runner.os }}-solid-start-${{ hashFiles('**/pnpm-lock.yaml') }}-
+          ${{ runner.os }}-solid-start-${{ hashFiles('**/bun.lock') }}-
 
-    - name: Setup Node.js
-      uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+    - name: Set up Bun
+      uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
       with:
-        node-version-file: ".nvmrc"
-        cache: "pnpm"
+        bun-version-file: ".bun-version"
 
-    - name: Run pnpm install
-      if: ${{ inputs.pnpm-run-install == 'true' }}
+    - name: Run bun install
+      if: ${{ inputs.bun-run-install == 'true' }}
       shell: bash
-      run: pnpm install --frozen-lockfile
+      run: bun install --frozen-lockfile

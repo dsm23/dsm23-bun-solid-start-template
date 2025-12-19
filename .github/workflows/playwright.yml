@@ -47,7 +47,7 @@ jobs:
       (${{ matrix.shardIndex[0] }}, ${{ matrix.shardTotal }})
 
     container:
-      image: mcr.microsoft.com/playwright:v1.57.0@sha256:3bed4b1a12f2338642f3d8cba28e291deef3c66bd4a964bbeb3e57bbff511dbd
+      image: gwennlbh/playwright-bun:v1.57.0@sha256:bd628a5d7022b5889e7f5ef074608cef058ab721d96fa66883b9ea7ad34a5e8d
       options: --user 1001
     steps:
       - name: Harden Runner
@@ -60,18 +60,18 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Node setup
+      - name: Bun setup
         uses: ./.github/actions/setup
 
       - name: Run Playwright tests (dev)
         if: ${{ matrix.shardIndex[1] <= matrix.shardTotal }}
         run: >
-          pnpm exec playwright test
+          bunx playwright test
           --shard=${{ matrix.shardIndex[0] }}/${{ matrix.shardTotal }}
       - name: Run Playwright tests (prod)
         if: ${{ matrix.shardIndex[1] > matrix.shardTotal }}
         run: >
-          pnpm exec playwright test
+          bunx playwright test
           --config playwright.prod.config.ts
           --shard=${{ matrix.shardIndex[0] }}/${{ matrix.shardTotal }}
 
@@ -101,7 +101,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Node setup
+      - name: Bun setup
         uses: ./.github/actions/setup
 
       - name: Download blob reports from GitHub Actions Artifacts
@@ -112,7 +112,7 @@ jobs:
           merge-multiple: true
 
       - name: Merge into HTML Report
-        run: pnpm exec playwright merge-reports --reporter html ./all-blob-reports
+        run: bunx playwright merge-reports --reporter html ./all-blob-reports
 
       - name: Upload HTML report
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0

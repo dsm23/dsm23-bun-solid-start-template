@@ -34,12 +34,12 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Node setup
+      - name: Bun setup
         uses: ./.github/actions/setup
 
       - name: Unit & Integration tests
         run: >
-          pnpm exec vitest run
+          bunx vitest run
           --project unit
           --reporter blob
           --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
@@ -80,7 +80,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Node setup
+      - name: Bun setup
         uses: ./.github/actions/setup
 
       - name: Download blob reports from GitHub Actions Artifacts
@@ -92,7 +92,7 @@ jobs:
 
       - name: Merge reports
         run: >
-          pnpm exec vitest
+          bunx vitest
           --coverage.enabled
           --coverage.reporter json
           --coverage.reporter json-summary
