@@ -29,11 +29,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Node setup
+      - name: Bun setup
         uses: ./.github/actions/setup
 
       - name: Build check
-        run: pnpm run build
+        run: bun run build
 
       - name: Storybook build check
-        run: pnpm run build-storybook
+        run: bun run build-storybook

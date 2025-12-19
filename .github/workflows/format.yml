@@ -29,8 +29,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Node setup
+      - name: Bun setup
         uses: ./.github/actions/setup
 
       - name: Format check
-        run: pnpm fmt.check
+        run: bun run fmt.check

@@ -36,7 +36,7 @@ export default defineConfig({
   },
   tag: "@prod",
   webServer: {
-    command: `pnpm run build && pnpm run start --port ${PORT}`,
+    command: `bun run build && bun run start --port ${PORT}`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
   },

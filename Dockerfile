@@ -1,11 +1,6 @@
 # syntax=docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
 
-FROM node:24.12.0-alpine@sha256:c921b97d4b74f51744057454b306b418cf693865e73b8100559189605f6955b8 AS base
-
-# corepack is broken https://github.com/nodejs/corepack/issues/612
-# corepack was fixed but is will be removed from node from v25+
-# TODO: re-add corepack after it's been removed
-# RUN npm install -g corepack@latest
+FROM oven/bun:1.3.5-alpine@sha256:7156fcc0cee0194d390bfaf7f0eeda9a5e383e70cc90f31aad3a2440a033d7dc AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -16,10 +11,9 @@ WORKDIR /app
 ENV LEFTHOOK=0
 
 # Install dependencies based on the preferred package manager
-COPY package.json pnpm-lock.yaml ./
+COPY package.json bun.lock ./
 
-RUN corepack enable pnpm
-RUN pnpm install --frozen-lockfile
+RUN bun install --frozen-lockfile
 
 FROM base AS prod-deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
@@ -29,10 +23,9 @@ WORKDIR /app
 ENV LEFTHOOK=0
 
 # Install dependencies based on the preferred package manager
-COPY package.json pnpm-lock.yaml ./
+COPY package.json bun.lock ./
 
-RUN corepack enable pnpm
-RUN pnpm install --production --frozen-lockfile
+RUN bun install --production --frozen-lockfile
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -40,8 +33,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN corepack enable pnpm
-RUN pnpm run build
+RUN bun run build
 
 # Production image, copy all the files and run next
 FROM base AS runner
