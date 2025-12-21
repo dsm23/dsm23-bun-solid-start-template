@@ -10,7 +10,7 @@
         "@solidjs/start": "1.2.0",
         "class-variance-authority": "0.7.1",
         "clsx": "2.1.1",
-        "lucide-solid": "0.561.0",
+        "lucide-solid": "0.562.0",
         "solid-js": "1.9.10",
         "tailwind-merge": "3.4.0",
         "vinxi": "0.5.9",
@@ -1312,7 +1312,7 @@
 
     "lru-cache": ["lru-cache@11.2.4", "", {}, "sha512-B5Y16Jr9LB9dHVkh6ZevG+vAbOsNOYCX+sXvFWFu7B3Iz5mijW3zdbMyhsh8ANd2mSWBYdJgnqi+mL7/LrOPYg=="],
 
-    "lucide-solid": ["lucide-solid@0.561.0", "", { "peerDependencies": { "solid-js": "1.9.10" } }, "sha512-9pi76feeX4PCYBvbJQ5eKPE8iVeo+yqcHXUxzmrfFNt5bKabIEc/RJMyKhYNrQg1CH/FMpC3c7qvShc1JNyQKA=="],
+    "lucide-solid": ["lucide-solid@0.562.0", "", { "peerDependencies": { "solid-js": "^1.4.7" } }, "sha512-RzxujbWUoa4KqnV+/mYPINzyf1W969bv0jukSKcGExIl96QmRuylvBQ+d0UcOeZL/ASToPOWS34p9MfdzdvS9Q=="],
 
     "luxon": ["luxon@3.6.1", "", {}, "sha512-tJLxrKJhO2ukZ5z0gyjY1zPh3Rh88Ej9P7jNrZiHMUXHae1yvI2imgOZtL1TO8TW6biMMKfTtAOoEJANgtWBMQ=="],
 
