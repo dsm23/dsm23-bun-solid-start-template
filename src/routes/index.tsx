@@ -456,7 +456,7 @@ export default function Home() {
               </p>
               <Button
                 as="a"
-                href="https://github.com/dsm23/dsm23-solid-start-template"
+                href="https://github.com/dsm23/dsm23-bun-solid-start-template"
                 class="mr-3"
               >
                 Get started
@@ -464,7 +464,7 @@ export default function Home() {
               <Button
                 variant="outline"
                 as="a"
-                href="https://vercel.com/new/git/external?repository-url=https://github.com/dsm23/dsm23-solid-start-template/"
+                href="https://vercel.com/new/git/external?repository-url=https://github.com/dsm23/dsm23-bun-solid-start-template/"
               >
                 Deploy Now
               </Button>
