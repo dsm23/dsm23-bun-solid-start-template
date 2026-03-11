@@ -21,7 +21,7 @@
         "@commitlint/cli": "20.4.3",
         "@commitlint/config-conventional": "20.4.3",
         "@commitlint/types": "20.4.3",
-        "@fast-check/vitest": "0.2.4",
+        "@fast-check/vitest": "0.3.0",
         "@playwright/test": "1.58.2",
         "@solidjs/meta": "0.29.4",
         "@solidjs/testing-library": "0.8.10",
@@ -241,7 +241,7 @@
 
     "@exodus/bytes": ["@exodus/bytes@1.15.0", "", { "peerDependencies": { "@noble/hashes": "^1.8.0 || ^2.0.0" }, "optionalPeers": ["@noble/hashes"] }, "sha512-UY0nlA+feH81UGSHv92sLEPLCeZFjXOuHhrIo0HQydScuQc8s0A7kL/UdgwgDq8g8ilksmuoF35YVTNphV2aBQ=="],
 
-    "@fast-check/vitest": ["@fast-check/vitest@0.2.4", "", { "dependencies": { "fast-check": "^3.0.0 || ^4.0.0" }, "peerDependencies": { "vitest": "^1 || ^2 || ^3 || ^4" } }, "sha512-Ilcr+JAIPhb1s6FRm4qoglQYSGXXrS+zAupZeNuWAA3qHVGDA1d1Gb84Hb/+otL3GzVZjFJESg5/1SfIvrgssA=="],
+    "@fast-check/vitest": ["@fast-check/vitest@0.3.0", "", { "dependencies": { "fast-check": "^3.0.0 || ^4.0.0" }, "peerDependencies": { "vitest": "^1 || ^2 || ^3 || ^4" } }, "sha512-mXxAu7DJtzwSUeOMecZibq/403b8uX1/dWWXXCBgb+j9ERWuN9Hvr6usId+9ivdQ+tJl8H6o+CMv71BmjaENRQ=="],
 
     "@fastify/busboy": ["@fastify/busboy@3.1.1", "", {}, "sha512-5DGmA8FTdB2XbDeEwc/5ZXBl6UbBAyBOOLlPuBnZ/N1SwdH9Ii+cOX3tBROlDgcTXxjOYnLMVoKk9+FXAw0CJw=="],
 
