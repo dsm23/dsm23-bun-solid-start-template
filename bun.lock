@@ -10,7 +10,7 @@
         "@solidjs/start": "1.3.2",
         "class-variance-authority": "0.7.1",
         "clsx": "2.1.1",
-        "lucide-solid": "1.6.0",
+        "lucide-solid": "1.7.0",
         "solid-js": "1.9.12",
         "tailwind-merge": "3.5.0",
         "vinxi": "0.5.11",
@@ -1145,7 +1145,7 @@
 
     "lru-cache": ["lru-cache@11.2.7", "", {}, "sha512-aY/R+aEsRelme17KGQa/1ZSIpLpNYYrhcrepKTZgE+W3WM16YMCaPwOHLHsmopZHELU0Ojin1lPVxKR0MihncA=="],
 
-    "lucide-solid": ["lucide-solid@1.6.0", "", { "peerDependencies": { "solid-js": "^1.4.7" } }, "sha512-Aq8AWEEGbZaBMQcpTiw2TEhjO4fZTB4ypoYhJHIN/FnHntmaSBZ1L+jbDLRsvECXA8CNM195AEvHxS8tBAHtmw=="],
+    "lucide-solid": ["lucide-solid@1.7.0", "", { "peerDependencies": { "solid-js": "^1.4.7" } }, "sha512-z+6Vmueb4W3Rf7ZQIEbcwWhQ/ci8vumLnixRzITXXs2uBjFPQvIvhotivUFAlgSj4xDvU822A1p0wioQlFyx8A=="],
 
     "lz-string": ["lz-string@1.5.0", "", { "bin": { "lz-string": "bin/bin.js" } }, "sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ=="],
 
