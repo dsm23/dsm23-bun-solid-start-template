@@ -12,9 +12,7 @@ on:
 env:
   LEFTHOOK: 0
 
-permissions:
-  contents: read
-
+permissions: {}
 jobs:
   smoke-test:
     runs-on: ubuntu-24.04
