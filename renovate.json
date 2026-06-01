@@ -74,7 +74,8 @@
         "@playwright/test",
         "mcr.microsoft.com/playwright",
         "gwennlbh/playwright-bun"
-      ]
+      ],
+      "schedule": ["* 3-6 * * *"]
     }
   ],
   "rebaseWhen": "conflicted",
