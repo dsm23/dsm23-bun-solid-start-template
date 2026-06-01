@@ -1,12 +1,7 @@
 import path from "node:path";
 import storybookTest from "@storybook/addon-vitest/vitest-plugin";
 import { playwright } from "@vitest/browser-playwright";
-import {
-  coverageConfigDefaults,
-  defaultExclude,
-  defineConfig,
-  mergeConfig,
-} from "vitest/config";
+import { defineConfig, mergeConfig } from "vitest/config";
 import viteConfig from "./vite.config";
 
 export default mergeConfig(
@@ -58,7 +53,6 @@ export default mergeConfig(
               provider: playwright(),
               instances: [{ browser: "chromium" }],
             },
-            setupFiles: [".storybook/vitest.setup.ts"],
           },
         },
       ],
